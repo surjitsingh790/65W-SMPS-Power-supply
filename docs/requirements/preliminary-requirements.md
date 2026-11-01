@@ -21,6 +21,10 @@
 | PSU-REQ-017 | **Preliminary enclosure: ventilated, fanless** | **Selected for concept evaluation (2026-11-01)**; material, dimensions, vents and ingress protection TBD |
 | PSU-REQ-018 | **Preferred concept orientation: vertical, lower inlet and upper outlet airflow** | Preliminary mechanical/thermal hypothesis; installation restrictions and alternate orientations TBD |
 | PSU-REQ-019 | Enclosure must prevent access to hazardous live parts and meet applicable fire, insulation, mechanical and ingress criteria | Mandatory safety design objective; standard/classification and acceptance criteria TBD |
+| PSU-REQ-020 | **Class I protective-earth safety architecture** | Selected for **preliminary evaluation** (2026-11-01), not yet safety approved; metal enclosure and bonding concept TBD |
+| PSU-REQ-021 | Protective-earth continuity, accessible conductive-part bonding and fault protection | Safety objectives; acceptance limits and test method require applicable standard and qualified review |
+| PSU-REQ-022 | Primary-to-accessible-secondary transformer insulation and PCB insulation coordination | Safety objectives; insulation grade, working voltage, creepage/clearance, dielectric tests TBD |
+| PSU-REQ-023 | Safety-rated EMI capacitors and protective-conductor/touch-current limits | TBD after standard and circuit architecture selection |
 
 ## 40°C continuous full-load thermal requirement
 - The 40°C value refers to **ambient air around the intended product**, not component surface or semiconductor junction temperature. Define measurement location and enclosure/mounting configuration before validation.
@@ -38,6 +42,18 @@
 - Capacitors should be separated from hot rectifiers, magnetics and heatsinks where practical; check ripple-current heating and lifetime at measured temperature.
 - Passive thermal validation must use intended enclosure, mounting orientation and still-air environment at 40°C ambient with continuous 65 W output. Measure hot spots at low/high AC line after documented thermal equilibrium, compare to component ratings and margin criteria.
 - If passive cooling cannot meet all electrical, safety and lifetime limits, redesign heat paths, PCB/enclosure or reopen the cooling architecture decision. Do not assume a fan is automatically required.
+
+## Class I protective-earth architecture — preliminary evaluation
+- Use distinct L, N and PE conductors. PE is a protective connection, **not** an operating return; never substitute neutral for PE.
+- If accessible conductive enclosure panels or heatsinks require protective bonding, specify reliable dedicated PE termination, bonding across panels, corrosion/loosening resistance, fault-path continuity and verification per the applicable standard.
+- **The 19 V secondary return is not automatically bonded to PE**; decide floating versus earth-referenced output based on system requirements, EMC, touch-current and fault analysis.
+- Class I earthing of a metal enclosure does **not** replace the insulation protection required between hazardous mains primary and an accessible isolated 19 V output. Define transformer insulation system, winding arrangement, auxiliary/feedback barrier crossings, dielectric strength and relevant construction tests.
+- Determine creepage (along insulating surfaces) and clearance (through air) from the selected standard and design conditions: working/transient voltage, insulation grade, pollution degree, material group, altitude and environment. No generic fixed millimeter spacing is approved.
+- Review appropriate safety-certified Y capacitors for any EMI paths crossing safety barriers or to PE; establish touch current, protective-conductor current and fault limits. Do not use ordinary capacitors in safety-critical positions.
+- Ventilated enclosure requires assessment of access to live parts through openings, conductive-panel PE bonding, fire containment, cable entry/strain relief, mechanical strength, ingress and accessible temperatures.
+- Select the product safety and EMC standards based on intended use and sales regions (IEC/CSA/UL 62368-1 only if applicable), then derive measurable pass/fail criteria and qualified review gates.
+- Required safety verification planning includes PE continuity, dielectric withstand, insulation assessment, leakage/touch current, abnormal operation and accessible-part checks. **No mains prototype energization until qualified safety review and controlled test approval.**
+- Class I is a **candidate under evaluation**, not a compliance claim or final approved architecture. Compare against Class II if system requirements warrant.
 
 ## Enclosure concept acceptance and thermal verification
 - Preferred concept mounting: vertical with a continuous unobstructed natural-convection path from lower inlets to upper outlets; define mounting hardware, orientation tolerance, free space around vents and whether horizontal mounting is permitted.
