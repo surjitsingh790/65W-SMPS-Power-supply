@@ -25,6 +25,10 @@
 | PSU-REQ-021 | Protective-earth continuity, accessible conductive-part bonding and fault protection | Safety objectives; acceptance limits and test method require applicable standard and qualified review |
 | PSU-REQ-022 | Primary-to-accessible-secondary transformer insulation and PCB insulation coordination | Safety objectives; insulation grade, working voltage, creepage/clearance, dielectric tests TBD |
 | PSU-REQ-023 | Safety-rated EMI capacitors and protective-conductor/touch-current limits | TBD after standard and circuit architecture selection |
+| PSU-REQ-024 | **Intended end use: 19 V / 65 W PSU for arcade gaming equipment** | Confirmed application intent (2026-11-01); exact game/load and installation TBD |
+| PSU-REQ-025 | **Preliminary integration concept: PSU installed within an arcade cabinet** | Proposed, **not yet confirmed**; external adapter remains an alternative |
+| PSU-REQ-026 | Product safety standards applicability: IEC 60335-2-82, UL 22, IEC 62368-1 | Candidates only; market, complete-machine classification and national editions TBD |
+| PSU-REQ-027 | Verify actual arcade load requires 19 V DC and stays within 65 W, including startup and transients | Pending load/interface characterization; not a universal arcade PSU |
 
 ## 40°C continuous full-load thermal requirement
 - The 40°C value refers to **ambient air around the intended product**, not component surface or semiconductor junction temperature. Define measurement location and enclosure/mounting configuration before validation.
@@ -42,6 +46,15 @@
 - Capacitors should be separated from hot rectifiers, magnetics and heatsinks where practical; check ripple-current heating and lifetime at measured temperature.
 - Passive thermal validation must use intended enclosure, mounting orientation and still-air environment at 40°C ambient with continuous 65 W output. Measure hot spots at low/high AC line after documented thermal equilibrium, compare to component ratings and margin criteria.
 - If passive cooling cannot meet all electrical, safety and lifetime limits, redesign heat paths, PCB/enclosure or reopen the cooling architecture decision. Do not assume a fan is automatically required.
+
+## Intended application and standards scoping — arcade gaming equipment
+- Intended end use: isolated 19 V, 65 W PSU for **arcade gaming equipment**, not an unspecified universal adapter.
+- Proposed first integration scenario: installed within an arcade cabinet. **User has not yet confirmed internal vs external mounting.** If external, reevaluate enclosure accessibility, cabling, mains connector, adapter-specific testing and cooling.
+- The arcade machine may include processors, displays, motors, solenoids and other loads; the PSU is not assumed to replace existing 5 V, 12 V or 24 V rails. Verify exact 19 V load, 65 W steady-state budget, inrush and dynamic load behavior before electrical design.
+- Candidate safety standards for applicability review: **IEC 60335-2-82:2024** (commercial amusement machines; https://webstore.iec.ch/en/publication/85016), **UL 22** (commercial amusement/gaming machines, US; https://www.shopulstandards.com/ProductDetail.aspx?productId=UL22), and **IEC 62368-1:2023** (applicable AV/ICT equipment, subassemblies and external PSUs; https://webstore.iec.ch/en/publication/69308). None is assigned as the governing standard yet.
+- Decide target market(s), intended indoor environment, machine-level versus PSU-level assessment, installation/accessibility and relevant national editions with qualified compliance review. Do not assume arcade equipment is always ICT equipment.
+- Retain Class I PE architecture as a **candidate** pending cabinet grounding/interface details; PE bonding and insulation requirements must be reviewed for the integrated product.
+- Identify applicable conducted/radiated EMI, immunity, mains harmonics, surge and efficiency requirements based on market and end product.
 
 ## Class I protective-earth architecture — preliminary evaluation
 - Use distinct L, N and PE conductors. PE is a protective connection, **not** an operating return; never substitute neutral for PE.
