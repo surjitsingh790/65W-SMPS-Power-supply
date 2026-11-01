@@ -7,14 +7,25 @@
 | PSU-REQ-003 | Rated output power: 65 W (approximately 3.42 A at 19 V) | Project baseline; load details TBD |
 | PSU-REQ-004 | Continuous operating input: **85–265 V AC RMS, 50/60 Hz** | **Confirmed (2026-10-31)** |
 | PSU-REQ-005 | **Steady-state average output voltage 19 V ±2% (18.62–19.38 V)** | **Confirmed target (2026-10-31)**; across specified input and load operating envelope, including combined errors |
-| PSU-REQ-006 | **Full-load AC-input-to-DC-output efficiency >=90% at 65 W across 85–265 VAC, 50/60 Hz** | **Confirmed preliminary target (2026-10-31)**; steady-state at rated load, ambient/test setup TBD; other load efficiencies, no-load consumption and temperature limits TBD |
+| PSU-REQ-006 | **Full-load AC-input-to-DC-output efficiency >=90% at 65 W across 85–265 VAC, 50/60 Hz** | **Confirmed preliminary target (2026-10-31)**; steady-state at rated load, test conditions TBD; other load efficiencies and no-load consumption TBD |
 | PSU-REQ-007 | Output ripple and noise <=190 mV peak-to-peak | Provisional; 20 MHz bandwidth proposed; measurement setup/test conditions TBD |
 | PSU-REQ-008 | Protection: OVP, OCP, SCP, OTP and inrush | TBD |
 | PSU-REQ-009 | Isolation, creepage, clearance, EMI and applicable safety standard | TBD; qualified review required |
 | PSU-REQ-010 | Architecture | Not selected; see ADR-001 |
 | PSU-REQ-011 | AC surge, abnormal input, brownout and recovery behavior | TBD; separate from continuous 85–265 VAC range |
 | PSU-REQ-012 | Load-step undershoot, overshoot, settling time and step slew rate | TBD; distinct from steady-state ±2% |
-| PSU-REQ-013 | Steady-state load range, no-load regulation and operating temperature range | TBD |
+| PSU-REQ-013 | Steady-state load range, no-load regulation and minimum operating temperature | TBD |
+| PSU-REQ-014 | **Deliver continuous rated 65 W output at ambient temperature up to 40°C without thermal derating** | **Confirmed design requirement (2026-11-01)**; minimum temperature, cooling/enclosure and orientation TBD |
+| PSU-REQ-015 | Thermal derating above 40°C | Not specified; no operation above 40°C is implied |
+
+## 40°C continuous full-load thermal requirement
+- The 40°C value refers to **ambient air around the intended product**, not component surface or semiconductor junction temperature. Define measurement location and enclosure/mounting configuration before validation.
+- Rated output of 19 V at 65 W must be sustainable at 40°C ambient without output-power derating over the confirmed 85–265 VAC, 50/60 Hz operating input range.
+- Investigate natural-convection cooling as a **candidate**, not an approved method. PCB area, copper, heatsinks, enclosure, airflow, mounting orientation and accessible surface temperatures remain open.
+- Check MOSFET and rectifier junction temperatures, transformer winding/core hot spots and insulation class, electrolytic capacitor case temperature and lifetime, control IC limits, PCB materials and enclosure surfaces against actual part specifications and safety criteria. Allocate reliability and measurement margins.
+- Illustrative thermal derating above 40°C is **not** an approved operating curve. Define any high-temperature operation and power limits separately.
+- Proposed verification: safety-reviewed controlled chamber at 40°C with intended enclosure/orientation, continuous rated load and 85/115/230/265 VAC corners (50/60 Hz as relevant); measure calibrated input/output power and component hot spots after a documented thermal-equilibrium criterion. Verify output regulation and protective behavior; document instrumentation uncertainty.
+- **No mains-powered thermal testing until qualified review and a safe test procedure are approved.**
 
 ## Full-load efficiency and thermal planning
 - Efficiency is measured from **real AC input power** to DC output power: eta = Pout / Pin. Do not use apparent power (VA) as input power.
