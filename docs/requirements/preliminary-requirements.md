@@ -7,7 +7,7 @@
 | PSU-REQ-003 | Rated output power: 65 W (approximately 3.42 A at 19 V) | Project baseline; load details TBD |
 | PSU-REQ-004 | Continuous operating input: **85–265 V AC RMS, 50/60 Hz** | **Confirmed (2026-10-31)** |
 | PSU-REQ-005 | **Steady-state average output voltage 19 V ±2% (18.62–19.38 V)** | **Confirmed target (2026-10-31)**; across specified input and load operating envelope, including combined errors |
-| PSU-REQ-006 | Efficiency, no-load consumption and temperature limits | TBD |
+| PSU-REQ-006 | **Full-load AC-input-to-DC-output efficiency >=90% at 65 W across 85–265 VAC, 50/60 Hz** | **Confirmed preliminary target (2026-10-31)**; steady-state at rated load, ambient/test setup TBD; other load efficiencies, no-load consumption and temperature limits TBD |
 | PSU-REQ-007 | Output ripple and noise <=190 mV peak-to-peak | Provisional; 20 MHz bandwidth proposed; measurement setup/test conditions TBD |
 | PSU-REQ-008 | Protection: OVP, OCP, SCP, OTP and inrush | TBD |
 | PSU-REQ-009 | Isolation, creepage, clearance, EMI and applicable safety standard | TBD; qualified review required |
@@ -15,6 +15,16 @@
 | PSU-REQ-011 | AC surge, abnormal input, brownout and recovery behavior | TBD; separate from continuous 85–265 VAC range |
 | PSU-REQ-012 | Load-step undershoot, overshoot, settling time and step slew rate | TBD; distinct from steady-state ±2% |
 | PSU-REQ-013 | Steady-state load range, no-load regulation and operating temperature range | TBD |
+
+## Full-load efficiency and thermal planning
+- Efficiency is measured from **real AC input power** to DC output power: eta = Pout / Pin. Do not use apparent power (VA) as input power.
+- At 65 W output and 90% efficiency, Pin <= 72.22 W and total loss <= 7.22 W. These are system-level limits, not per-component limits.
+- Illustrative loss allocation (not a simulation or bill of materials): bridge/input 0.65 W, primary MOSFET 1.60 W, transformer 1.45 W, secondary rectification 1.75 W, output filtering 0.35 W, control/auxiliary 0.60 W, miscellaneous 0.82 W = 7.22 W.
+- Low-line operation can increase RMS current and conduction losses; high-line operation can increase switching stress/losses. Neither corner is assumed worst-case without analysis.
+- Efficiency is load-dependent: define test points at 25%, 50%, 75% and 100% load, and no-load **input power** separately. Only the full-load 90% minimum is approved so far.
+- Test using a calibrated true-power AC analyzer and DC voltage/current measurement after thermal stabilization, across specified AC input and frequency. Define ambient, measurement uncertainty and acceptance margins before testing.
+- Thermal design must distribute component losses, check junction/core/capacitor temperatures and account for PCB copper, enclosure, airflow and ambient; 7.22 W alone cannot predict temperatures.
+- This efficiency target is a project goal, not evidence of regulatory energy-efficiency compliance.
 
 ## Regulation interpretation
 - The ±2% is an **overall** allowable steady-state average output deviation from nominal 19 V, not ±2% independently for line, load, temperature and feedback.
