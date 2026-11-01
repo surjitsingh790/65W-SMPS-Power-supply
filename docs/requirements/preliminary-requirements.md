@@ -17,15 +17,24 @@
 | PSU-REQ-013 | Steady-state load range, no-load regulation and minimum operating temperature | TBD |
 | PSU-REQ-014 | **Deliver continuous rated 65 W output at ambient temperature up to 40°C without thermal derating** | **Confirmed design requirement (2026-11-01)**; minimum temperature, cooling/enclosure and orientation TBD |
 | PSU-REQ-015 | Thermal derating above 40°C | Not specified; no operation above 40°C is implied |
+| PSU-REQ-016 | **Preliminary cooling architecture: passive natural convection without fan** | **Selected for feasibility evaluation (2026-11-01)**; subject to enclosure, component and thermal verification |
 
 ## 40°C continuous full-load thermal requirement
 - The 40°C value refers to **ambient air around the intended product**, not component surface or semiconductor junction temperature. Define measurement location and enclosure/mounting configuration before validation.
 - Rated output of 19 V at 65 W must be sustainable at 40°C ambient without output-power derating over the confirmed 85–265 VAC, 50/60 Hz operating input range.
-- Investigate natural-convection cooling as a **candidate**, not an approved method. PCB area, copper, heatsinks, enclosure, airflow, mounting orientation and accessible surface temperatures remain open.
+- **Natural convection (fanless) is the selected preliminary cooling approach**, not yet demonstrated to meet requirements. Revisit if thermal/safety margins are inadequate. PCB area, copper, heatsinks, enclosure, airflow, mounting orientation and accessible surface temperatures remain open.
 - Check MOSFET and rectifier junction temperatures, transformer winding/core hot spots and insulation class, electrolytic capacitor case temperature and lifetime, control IC limits, PCB materials and enclosure surfaces against actual part specifications and safety criteria. Allocate reliability and measurement margins.
 - Illustrative thermal derating above 40°C is **not** an approved operating curve. Define any high-temperature operation and power limits separately.
 - Proposed verification: safety-reviewed controlled chamber at 40°C with intended enclosure/orientation, continuous rated load and 85/115/230/265 VAC corners (50/60 Hz as relevant); measure calibrated input/output power and component hot spots after a documented thermal-equilibrium criterion. Verify output regulation and protective behavior; document instrumentation uncertainty.
 - **No mains-powered thermal testing until qualified review and a safe test procedure are approved.**
+
+## Passive cooling design and verification considerations
+- Enclosure: compare ventilated versus sealed concepts; vent placement, fire containment, ingress, accessibility of hazardous voltages, orientation and accessible surface temperatures require qualified safety review. No enclosure type is approved yet.
+- PCB: spread heat with appropriately sized copper areas and thermal vias within each permitted net/isolation region. Avoid compromising creepage, clearance or EMI with copper near the isolation barrier or high-dv/dt nodes.
+- Heatsinks: evaluate component power loss and thermal resistance chain (junction-to-case, interface, heatsink-to-ambient). Electrically live heatsinks require safe insulation/accessibility arrangements and isolation verification.
+- Capacitors should be separated from hot rectifiers, magnetics and heatsinks where practical; check ripple-current heating and lifetime at measured temperature.
+- Passive thermal validation must use intended enclosure, mounting orientation and still-air environment at 40°C ambient with continuous 65 W output. Measure hot spots at low/high AC line after documented thermal equilibrium, compare to component ratings and margin criteria.
+- If passive cooling cannot meet all electrical, safety and lifetime limits, redesign heat paths, PCB/enclosure or reopen the cooling architecture decision. Do not assume a fan is automatically required.
 
 ## Full-load efficiency and thermal planning
 - Efficiency is measured from **real AC input power** to DC output power: eta = Pout / Pin. Do not use apparent power (VA) as input power.
