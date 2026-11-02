@@ -24,6 +24,32 @@ Develop a mains-powered, galvanically isolated AC/DC supply as an engineering le
 - Safety isolation, creepage/clearance, insulation, surge, EMI and certification targets: TBD
 - Component availability, magnetics feasibility, cost, PCB area, thermal margin, testability and development risk: TBD
 
+## First-pass comparison (2026-11-02; qualitative, not validated)
+For 65 W output and 90% efficiency: real AC input power must be <=72.22 W and aggregate conversion loss <=7.22 W. At 92% efficiency the corresponding loss is 5.65 W (1.57 W less); these are targets/scenarios, **not measured or predicted topology performance**.
+
+| Dimension | Conventional flyback | Active-clamp flyback |
+|---|---|---|
+| Primary power switches | Usually one | Usually two |
+| Leakage energy | Typically dissipative clamp/snubber | Controlled clamp, potentially recovers energy |
+| Soft switching | Usually hard switching, although QR/valley-switching variants reduce turn-on loss | Potential ZVS under suitable operating conditions; not guaranteed at all loads |
+| Controller/gate drive | Less complex | More complex clamp timing, drive and startup/fault behavior |
+| Loss and 90% goal | Plausible with optimized magnetics, rectification and switching; requires calculations | Potential efficiency advantage; must be shown over 85–265 VAC and load range |
+| EMI/thermal | Switching edges, leakage spikes, rectifier losses require analysis | Resonant/clamp dynamics add EMI and control trade-offs |
+| BOM/cost/testability | Generally lower and easier to debug | Generally higher; more waveforms and failure modes |
+| Learning project | Strong first isolated-converter baseline | Valuable advanced follow-up or redesign |
+
+**Working preference:** conventional flyback for first-pass design because of reduced implementation and verification risk. **No topology has been selected or approved.** Compare candidate quasi-resonant/valley-switching controllers as a conventional flyback variant; consider secondary synchronous rectification if the diode loss budget requires it.
+
+### Quantitative comparison still required
+1. Choose plausible controller/reference designs for each candidate; review actual datasheets, availability and safety implications.
+2. Define switching mode/frequency and worst-case bulk bus minimum/maximum under line/load/ripple conditions.
+3. Estimate transformer turns ratio, magnetizing inductance, peak/RMS currents, core/copper/leakage losses and insulation feasibility.
+4. Calculate primary MOSFET voltage stress (bus + reflected voltage + leakage overshoot), conduction and switching losses; evaluate clamp loss/recovery and device ratings.
+5. Estimate secondary diode versus synchronous rectification losses, output capacitor RMS/ripple and feedback/auxiliary power.
+6. Compare loss budget against <=7.22 W at rated load at both 85 VAC and 265 VAC; examine 40°C still-air fanless enclosure hot spots.
+7. Compare BOM cost, board area, EMC filtering, control-loop design, light-load/no-load behavior and fault handling.
+8. Document assumptions and confidence levels; make topology selection only after reviewing evidence.
+
 ## Preliminary direction
 Shortlist conventional flyback and active-clamp flyback for a quantitative trade study. **This is not a selection.** Forward and LLC remain documented alternatives.
 
