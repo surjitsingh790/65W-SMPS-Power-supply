@@ -29,6 +29,7 @@
 | PSU-REQ-025 | **Preliminary integration concept: PSU installed within an arcade cabinet** | Proposed, **not yet confirmed**; external adapter remains an alternative |
 | PSU-REQ-026 | Product safety standards applicability: IEC 60335-2-82, UL 22, IEC 62368-1 | Candidates only; market, complete-machine classification and national editions TBD |
 | PSU-REQ-027 | Verify actual arcade load requires 19 V DC and stays within 65 W, including startup and transients | Pending load/interface characterization; not a universal arcade PSU |
+| PSU-REQ-028 | **Project validation scope: personal noncommercial testing on owner's own arcade equipment** | **Confirmed (2026-11-02)**; no commercial arcade installation, sale or distribution planned |
 
 ## 40°C continuous full-load thermal requirement
 - The 40°C value refers to **ambient air around the intended product**, not component surface or semiconductor junction temperature. Define measurement location and enclosure/mounting configuration before validation.
@@ -48,6 +49,7 @@
 - If passive cooling cannot meet all electrical, safety and lifetime limits, redesign heat paths, PCB/enclosure or reopen the cooling architecture decision. Do not assume a fan is automatically required.
 
 ## Intended application and standards scoping — arcade gaming equipment
+- **Confirmed testing scope:** educational prototype, intended for personal testing with the owner's own arcade equipment only. No commercial deployment, product sale or certification claim is planned. Private use does not by itself establish exemption from Ontario electrical approval or safe testing obligations.
 - Intended end use: isolated 19 V, 65 W PSU for **arcade gaming equipment**, not an unspecified universal adapter.
 - Proposed first integration scenario: installed within an arcade cabinet. **User has not yet confirmed internal vs external mounting.** If external, reevaluate enclosure accessibility, cabling, mains connector, adapter-specific testing and cooling.
 - The arcade machine may include processors, displays, motors, solenoids and other loads; the PSU is not assumed to replace existing 5 V, 12 V or 24 V rails. Verify exact 19 V load, 65 W steady-state budget, inrush and dynamic load behavior before electrical design.
