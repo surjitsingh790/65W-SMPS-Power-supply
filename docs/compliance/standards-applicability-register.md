@@ -2,6 +2,8 @@
 
 **Project:** 65 W isolated 19 V AC/DC SMPS, 85–265 VAC, arcade gaming equipment intended test use, Class I PE candidate, fanless ventilated enclosure concept.
 
+**Confirmed test scope (2026-11-02):** personal, noncommercial testing on the owner's own arcade equipment; no commercial arcade installation, sale or distribution planned. This does **not** automatically waive electrical approval, safe-work or equipment requirements.
+
 **Status:** educational engineering project only. Not certified, approved, or authorized for mains energization or arcade deployment. This is a research register, not an exhaustive legal compliance determination. Exact product classification, installation, market, and editions remain open.
 
 | Topic | Candidate source/standard | Relevance and decision gate |
@@ -22,13 +24,13 @@
 | Arcade operation/business permits | Municipal amusement/business licensing, provincial gaming/lottery rules where applicable | Depend on whether machine is coin-operated, prize-bearing, gambling-related, location and commercial operation; distinct from PSU certification. |
 
 ## Safety and evidence gates
-1. Confirm **learning-only** status and whether tests will occur at a qualified lab; no claim of certification.
+1. **Confirmed:** learning-only and privately owned arcade test equipment; establish an authorized qualified testing arrangement before mains energization. No claim of certification.
 2. Confirm prototype intended as **internal arcade cabinet module** or **external adapter** (still unresolved).
 3. Identify exact arcade load and output interface; check 19 V, 65 W and startup/transient requirements.
 4. Identify jurisdiction(s) (Ontario/Canada initial assumption for research only) and intended commercial or noncommercial use.
 5. Obtain qualified review of product standard selection, PE bonding, primary-secondary insulation, accessible parts, enclosure vents, EMI and thermal protection.
 6. Establish laboratory safe-work procedures and approvals before any mains energization; consider low-voltage-only development or simulations first.
-7. If deployment/sale is contemplated, obtain required third-party certification/field evaluation and EMC/regulatory conformity for the actual configuration.
+7. Commercial deployment/sale is **out of current scope**. Reopen third-party certification/field evaluation, EMC/regulatory conformity and business licensing before any such change.
 
 ## Official reference starting points
 - Ontario Regulation 438/07: https://www.ontario.ca/laws/regulation/r07438
