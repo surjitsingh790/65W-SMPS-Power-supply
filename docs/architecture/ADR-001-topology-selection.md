@@ -1,11 +1,11 @@
 # ADR-001: Isolated AC/DC topology evaluation
 
-**Status:** Proposed — topology decision pending  
+**Status:** Accepted — conventional flyback selected (2026-11-05); detailed design and safety approval pending  
 **Project:** 65 W, nominal 19 V DC output (65/19 = 3.42 A)  
 **Confirmed input:** 85–265 V AC RMS, 50/60 Hz (2026-10-31)
 
 ## Context
-Develop a mains-powered, galvanically isolated AC/DC supply as an engineering learning and portfolio project. The universal input range is confirmed; **no topology, controller, safety classification or production design has been approved.** Mains-connected hardware must not be energized without qualified review, appropriate isolation/protection, and a controlled test plan.
+Develop a mains-powered, galvanically isolated AC/DC supply as an engineering learning and portfolio project. The universal input range is confirmed; **conventional flyback has been selected as the topology, but no controller, safety classification or production design has been approved.** Mains-connected hardware must not be energized without qualified review, appropriate isolation/protection, and a controlled test plan.
 
 ## Candidates
 
@@ -38,7 +38,7 @@ For 65 W output and 90% efficiency: real AC input power must be <=72.22 W and ag
 | BOM/cost/testability | Generally lower and easier to debug | Generally higher; more waveforms and failure modes |
 | Learning project | Strong first isolated-converter baseline | Valuable advanced follow-up or redesign |
 
-**Working preference:** conventional flyback for first-pass design because of reduced implementation and verification risk. **No topology has been selected or approved.** Compare candidate quasi-resonant/valley-switching controllers as a conventional flyback variant; consider secondary synchronous rectification if the diode loss budget requires it.
+**Selected topology (2026-11-05): conventional flyback**, chosen for reduced implementation and verification risk in the learning project. Selection does **not** demonstrate that 90% efficiency or safety requirements are met. Compare candidate quasi-resonant/valley-switching controllers as a conventional flyback variant; consider secondary synchronous rectification if the diode loss budget requires it.
 
 ### Quantitative comparison still required
 1. Choose plausible controller/reference designs for each candidate; review actual datasheets, availability and safety implications.
@@ -51,14 +51,14 @@ For 65 W output and 90% efficiency: real AC input power must be <=72.22 W and ag
 8. Document assumptions and confidence levels; make topology selection only after reviewing evidence.
 
 ## Preliminary direction
-Shortlist conventional flyback and active-clamp flyback for a quantitative trade study. **This is not a selection.** Forward and LLC remain documented alternatives.
+**Decision: conventional flyback.** Active-clamp flyback remains the principal rejected alternative for this phase; forward and LLC remain documented alternatives. Reopen the decision if quantitative losses, thermal limits, or other requirements cannot be satisfied.
 
 ## Decision gates
 1. Approve remaining measurable electrical, mechanical, environmental and safety requirements.
 2. Calculate first-pass stresses, losses and magnetic feasibility at both input extremes for shortlisted topologies.
 3. Compare controller reference designs and manufacturer datasheets.
 4. Review safety strategy and test infrastructure before schematic design.
-5. Record selected topology, evidence and trade-offs in a follow-up ADR revision.
+5. **Completed:** record conventional flyback topology selection (2026-11-05); controller selection and design verification remain open.
 
 ## Verification note
 Peak-to-peak ripple must be specified with bandwidth, probing method, operating conditions and acceptance criteria; ripple is distinct from DC regulation. The operating input range does not define surge immunity.
