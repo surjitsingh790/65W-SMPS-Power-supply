@@ -11,7 +11,7 @@
 | PSU-REQ-007 | Output ripple and noise <=190 mV peak-to-peak | Provisional; 20 MHz bandwidth proposed; measurement setup/test conditions TBD |
 | PSU-REQ-008 | Protection: OVP, OCP, SCP, OTP and inrush | TBD |
 | PSU-REQ-009 | Isolation, creepage, clearance, EMI and applicable safety standard | TBD; qualified review required |
-| PSU-REQ-010 | Architecture | Not selected; see ADR-001 |
+| PSU-REQ-010 | **Architecture: conventional isolated flyback** | **Selected (2026-11-05)**; switching mode/controller, transformer and quantitative feasibility pending; see ADR-001 |
 | PSU-REQ-011 | AC surge, abnormal input, brownout and recovery behavior | TBD; separate from continuous 85–265 VAC range |
 | PSU-REQ-012 | Load-step undershoot, overshoot, settling time and step slew rate | TBD; distinct from steady-state ±2% |
 | PSU-REQ-013 | Steady-state load range, no-load regulation and minimum operating temperature | TBD |
