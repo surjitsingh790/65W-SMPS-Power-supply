@@ -1,6 +1,6 @@
 # ADR-001: Isolated AC/DC topology evaluation
 
-**Status:** Accepted — conventional flyback selected (2026-11-05); detailed design and safety approval pending  
+**Status:** Accepted — conventional flyback selected (2026-11-05); TI UCG28826 selected as controller candidate for detailed design (2026-11-05); feasibility and safety approval pending  
 **Project:** 65 W, nominal 19 V DC output (65/19 = 3.42 A)  
 **Confirmed input:** 85–265 V AC RMS, 50/60 Hz (2026-10-31)
 
@@ -59,6 +59,9 @@ For 65 W output and 90% efficiency: real AC input power must be <=72.22 W and ag
 3. Compare controller reference designs and manufacturer datasheets.
 4. Review safety strategy and test infrastructure before schematic design.
 5. **Completed:** record conventional flyback topology selection (2026-11-05); controller selection and design verification remain open.
+
+## Controller decision (2026-11-05)
+**Selected part: Texas Instruments UCG28826** for the conventional quasi-resonant flyback implementation. Rationale: auxless self-bias (no dedicated transformer auxiliary bias winding), integrated GaN power switch, potentially reduced component count and relevant 65 W reference-design ecosystem. UCC28740 and other controller candidates remain recorded as alternatives. This is a project component decision, **not** a verified guarantee of 65 W output, 85–265 VAC operation, 90% efficiency, 40°C fanless thermal compliance, or mains electrical safety. Before schematic capture, inspect the exact device datasheet and reference design to verify voltage/current operating limits, switching operation, transformer and isolation design, startup, feedback, protections, PCB thermal constraints and availability.
 
 ## Verification note
 Peak-to-peak ripple must be specified with bandwidth, probing method, operating conditions and acceptance criteria; ripple is distinct from DC regulation. The operating input range does not define surge immunity.
