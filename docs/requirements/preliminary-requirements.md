@@ -106,4 +106,6 @@
 - Magnetics, current limit, thermal losses and control must be checked at low line, high line and intermediate points.
 - Confirm mains frequency tolerance, input power factor/harmonic applicability, EMI, inrush and surge immunity in a safety review.
 
+**Controller decision (2026-11-05):** Texas Instruments **UCG28826** selected for detailed design, using conventional quasi-resonant flyback with integrated GaN switch and auxless self-bias. Exact operating envelope, reference design transferability, transformer, feedback, efficiency and thermal feasibility remain to be verified before schematic capture.
+
 **Note:** These are design inputs, not demonstrated performance or safety claims. No mains-powered prototype is approved for energization.
